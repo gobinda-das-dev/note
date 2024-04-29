@@ -28,4 +28,16 @@ app.get('/files/:filename', (req, res) => {
   })
 })
 
+app.get('/edit/:filename', (req, res) => {
+  const { filename } = req.params;
+  res.render('edit', { filename: filename })
+})
+
+app.post('/edit', (req, res) => {
+  const { previous , current } = req.body;
+  fs.rename(`./files/${previous}`, `./files/${current}`, err => {
+    res.redirect('/')
+  });
+})
+
 app.listen(3000)

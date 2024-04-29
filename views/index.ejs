@@ -24,7 +24,10 @@
           <% console.log(val) %>
           <div class="task w-72 rounded-sm bg-zinc-800 px-6 py-2">
             <h1 class="text-3xl tracking-tighter"><%= val %></h1>
-            <a class="text-blue-500" href="files/<%= val %>">read more</a>
+            <div class="flex w-full items-center justify-between">
+              <a class="text-blue-500" href="files/<%= val %>">read more.</a>
+              <a class="text-zinc-700" href="/edit/<%= val %>">edit</a>
+            </div>
           </div>
         <% }) %>
       <% } else { %>
